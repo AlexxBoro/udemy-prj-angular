@@ -1,4 +1,4 @@
-project based on a tutorial by MAx Schwarzmuller
+project based on a tutorial by Maximilian Schwarzmuller.
 
 # MyFirstApp
 
