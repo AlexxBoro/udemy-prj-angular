@@ -10,27 +10,33 @@ import { Subject } from 'rxjs/Subject';
 export class RecipesService {
   recipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'A Test Recipe',
-      'This is simply a test',
-      'https://c.pxhere.com/photos/b9/d3/cookbook_recipes_food_cook_book_paper_hand_culinary-881861.jpg!d',
-      [
-        new Ingredient('something', 2),
-        new Ingredient('something else', 1)
-      ]),
-    new Recipe(
-      'A Test Recipeee2',
-      'This is simply a testttt2',
-      'https://c.pxhere.com/photos/b9/d3/cookbook_recipes_food_cook_book_paper_hand_culinary-881861.jpg!d',
-      [
-        new Ingredient('a thing', 1),
-        new Ingredient('something else', 3),
-        new Ingredient('potatoes', 5),
-      ]),
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'A Test Recipe',
+  //     'This is simply a test',
+  //     'https://c.pxhere.com/photos/b9/d3/cookbook_recipes_food_cook_book_paper_hand_culinary-881861.jpg!d',
+  //     [
+  //       new Ingredient('something', 2),
+  //       new Ingredient('something else', 1)
+  //     ]),
+  //   new Recipe(
+  //     'A Test Recipeee2',
+  //     'This is simply a testttt2',
+  //     'https://c.pxhere.com/photos/b9/d3/cookbook_recipes_food_cook_book_paper_hand_culinary-881861.jpg!d',
+  //     [
+  //       new Ingredient('a thing', 1),
+  //       new Ingredient('something else', 3),
+  //       new Ingredient('potatoes', 5),
+  //     ]),
+  // ];
+  private recipes: Recipe[] = [];
 
   constructor(private slService: ShoppingListService) {}
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     return this.recipes.slice();
