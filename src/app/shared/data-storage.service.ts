@@ -6,7 +6,7 @@ import { RecipesService } from '../recipes/recipes.service';
 import { Recipe } from '../recipes/recipe.model';
 import { AuthService } from '../auth/auth.service';
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class DataStorageService {
   constructor(
     private http: HttpClient,
@@ -18,7 +18,7 @@ export class DataStorageService {
     const recipes = this.recipesService.getRecipes();
     this.http
       .put(
-        "https://udemy-recipe-project-ac74b.firebaseio.com/recipes.json",
+        'https://udemy-recipe-project-ac74b.firebaseio.com/recipes.json',
         recipes
       )
       .subscribe(response => {
