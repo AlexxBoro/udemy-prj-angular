@@ -8,10 +8,23 @@ import { LoggingService } from './logging.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  data: { "name": string; "value": number; }[];
   constructor(private authService: AuthService, private loggingService: LoggingService) {}
 
   ngOnInit() {
     this.authService.autoLogin();
     this.loggingService.printLog('hello from app component onOnInit');
+
+    this.data = [
+      {
+        "name": "Zrealizowane",
+        "value": 76
+      },
+      {
+        "name": "Odrzucone",
+        "value": 8
+      }
+    ];
+
   }
 }

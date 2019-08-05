@@ -1,0 +1,13 @@
+  <div style="display: block">
+  <h2 class="text-center">PIE chart using Chartjs and Angular 6</h2>
+  <canvas baseChart
+  [data]="pieChartData"
+  [labels]="pieChartLabels"
+  [chartType]="pieChartType"
+  [options]="pieChartOptions"
+
+  [options]="options"
+  (chartHover)="chartHovered($event)"
+  (chartClick)="chartClicked($event)"></canvas>
+  </div>
+

@@ -11,15 +11,23 @@ import { LoggingService } from './logging.service';
 import { ChartComponent } from './shared/chart/chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { CustomChartComponent } from './shared/chart-custom/chart-custom.component';
+
+
+import { CustomChartComponent } from './shared/chart-custom/chart-custom.component';
+import { ChartWithChartJSComponent } from './shared/chart-with-chartjs/chart-with-chartjs.component';
+import { ChartsModule } from 'ng2-charts';
+
+// import { PieChartSwimlaneGhComponent } from './shared/piechart-swimlane-gh/piechart-swimlane-gh.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ChartComponent
-    // CustomChartComponent
+    ChartComponent,
+    CustomChartComponent,
+    ChartWithChartJSComponent
+    // PieChartSwimlaneGhComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     SharedModule,
     CoreModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ChartsModule
   ],
   bootstrap: [AppComponent]
   // providers: [LoggingService]

@@ -1,14 +1,45 @@
 <ngx-charts-chart
-  [view]="[width, height]"
-  [showLegend]="false">
-  <svg:g class="bar-chart chart">
-    <svg:g
-      ngx-charts-series-vertical
-      [xScale]="xScale"
-      [yScale]="yScale"
-      [colors]="colors"
-      [series]="results"
-      [dims]="dims">
-    </svg:g>
-  </svg:g>
+      [view]="[width, height]"
+      [showLegend]="legend"
+      [legendOptions]="legendOptions"
+      [activeEntries]="activeEntries"
+      [animations]="animations"
+      (legendLabelActivate)="onActivate($event, true)"
+      (legendLabelDeactivate)="onDeactivate($event, true)"
+      (legendLabelClick)="onClick($event)"
+    >
+      <svg:g [attr.transform]="translation" class="pie-chart chart">
+        <svg:g
+          ngx-charts-pie-series
+          [colors]="colors"
+          [series]="results"
+          [showLabels]="labels"
+          [trimLabels]="trimLabels"
+          [activeEntries]="activeEntries"
+          [innerRadius]="innerRadius"
+          [outerRadius]="outerRadius"
+          [explodeSlices]="explodeSlices"
+          [gradient]="gradient"
+          [animations]="animations"
+          [tooltipDisabled]="tooltipDisabled"
+          [tooltipTemplate]="tooltipTemplate"
+          [tooltipText]="tooltipText"
+          (dblclick)="dblclick.emit($event)"
+          (select)="onClick($event)"
+          (activate)="onActivate($event)"
+          (deactivate)="onDeactivate($event)">
+        </svg:g>
+        </svg:g>
 </ngx-charts-chart>
+
+<!-- <defs>
+    <svg:g ngx-charts-svg-linear-gradient
+      orientation="vertical"
+      [name]="'name'"
+      [stops]="gradientStops"
+    />
+</defs> -->
+
+
+
+
